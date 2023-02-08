@@ -10,7 +10,7 @@ on:
 jobs:
   CI:
     # Define the runner used in the workflow.
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       # Check out repo so our workflow can access it
       - uses: actions/checkout@v2
@@ -20,7 +20,7 @@ jobs:
         # This action sets up a Python environment for us in actions
         uses: actions/setup-python@v2
         with:
-          python-version: 3.7
+          python-version: 3.10.8
           # optional: architecture: x64, x64 or x86. Default to x64 if not specified
       
       # Step-2 Install Python Virtual ENV
