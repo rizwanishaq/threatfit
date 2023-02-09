@@ -23,7 +23,7 @@ jobs:
           python-version: '3.10'
           # optional: architecture: x64, x64 or x86. Default to x64 if not specified
           architecture: 'x64'
-          cache: "pip3"
+          cache: "pip"
       
       # Step-2 Install Python Virtual ENV
       - name: Install Python Virtual ENV
