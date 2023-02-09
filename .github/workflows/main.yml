@@ -30,15 +30,17 @@ jobs:
         run: pip3 install virtualenv
 
       # Step-3 Setup Virtual ENV
-      # - name: Virtual ENV
-      #   uses: actions/cache@v3
-      #   id: cache-venv # name for referring later
-      #   with:
-      #     path: venv # what we cache: the Virtual ENV
-      #     # The cache key depends on requirements.txt
-      #     key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements*.txt') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-venv-
+      - name: Virtual ENV
+        uses: actions/cache@v3
+        id: cache-venv # name for referring later
+        with:
+          path: venv # what we cache: the Virtual ENV
+          # The cache key depends on requirements.txt
+          key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-venv-
+      - name: pwd
+        run: ls -lha
       # Step-4 Build a Virtual ENV, but only if it doesn't already exist
       - name: Activate Virtual ENV
         run: python3 -m venv venv && source venv/bin/activate && pip3 install -r requirements.txt
